@@ -1,0 +1,8 @@
+#!/bin/bash
+set -e
+sudo apt-get update
+sudo apt-get install cmake build-essential libssl-dev acl acl-dev libacl1 libacl1-dev \
+     libcap-dev libjansson-dev qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools \
+	 postgresql-server-dev-14 zlib1g-dev libreadline-dev libc6-dev-i386 apache2 \
+	 chrpath debhelper liblzo2-dev libjson-c-dev mtx pkg-config po-debconf \
+	 dos2unix

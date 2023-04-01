@@ -1,0 +1,6 @@
+#!/bin/bash
+set -e
+mkdir -p /tmp/build-tmp
+cd /tmp/build-tmp
+cmake -Dpostgresql=yes -Dsystemtest_db_user=$USER -Dtraymonitor=yes /mount/bareos/
+ctest --verbose --rerun-failure --output-on-failure $@

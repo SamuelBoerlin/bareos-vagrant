@@ -1,0 +1,7 @@
+#!/bin/bash
+set -e
+mkdir -p /mount/bareos/
+cd /mount/bareos/
+git config --global core.autocrlf false
+git config --global core.eol lf
+git clone https://github.com/bareos/bareos.git .
