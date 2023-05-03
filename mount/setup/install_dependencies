@@ -1,8 +1,17 @@
 #!/bin/bash
 set -e
-sudo apt-get update
-sudo apt-get install cmake build-essential libssl-dev acl acl-dev libacl1 libacl1-dev \
-     libcap-dev libjansson-dev qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools \
-	 postgresql-server-dev-14 zlib1g-dev libreadline-dev libc6-dev-i386 apache2 \
-	 chrpath debhelper liblzo2-dev libjson-c-dev mtx pkg-config po-debconf \
-	 dos2unix
+sudo sed -i "/#\$nrconf{restart} = 'i';/s/.*/\$nrconf{restart} = 'a';/" /etc/needrestart/needrestart.conf
+sudo apt-get -qq update
+sudo apt-get remove libqt4-dev || true
+sudo apt-get -q --assume-yes install dpkg-dev
+cd /mount/bareos/
+dpkg-checkbuilddeps 2> /tmp/dpkg-builddeps || true
+cat /tmp/dpkg-builddeps
+sed -e "s/^.*:.*:\s//" -e "s/\s([^)]*)//g" -e "s/|/ /g" -e "s/ /\n/g" /tmp/dpkg-builddeps > /tmp/build_depends
+sudo apt-get -q --assume-yes install fakeroot
+cat /tmp/build_depends | while read pkg; do
+  echo "installing $pkg"
+  sudo apt-get -q --assume-yes install $pkg || true
+done
+sudo apt-get apt-get -q --assume-yes install python2-dev
+sudo apt-get apt-get -q --assume-yes install python3-dev
