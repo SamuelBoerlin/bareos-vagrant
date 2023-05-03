@@ -2,5 +2,5 @@
 set -e
 mkdir -p /tmp/build-tmp
 cd /tmp/build-tmp
-cmake -DGIT_DESCRIBE_VERSION="1.2.3" -DVERSION_STRING="1.2.3" -Dpostgresql=yes -Dsystemtest_db_user=$USER -Dtraymonitor=yes /mount/bareos/
-ctest --verbose --rerun-failure --output-on-failure $@
+cmake -DGIT_DESCRIBE_VERSION="22.0.0" -DVERSION_STRING="22.0.0" -Dpostgresql=yes -Dsystemtest_db_user=$USER -Dtraymonitor=yes /mount/bareos/
+sudo REGRESS_DEBUG=1 ctest --verbose --output-on-failure $@
