@@ -1,0 +1,7 @@
+#!/bin/bash
+set -e
+. /mount/build/config
+mkdir -p /tmp/bareos-docs
+cd /tmp/bareos-docs
+cmake -DGIT_DESCRIBE_VERSION="$BAREOS_VERSION" -DVERSION_STRING="$BAREOS_VERSION" -Ddocs-only=yes /mount/bareos/
+make

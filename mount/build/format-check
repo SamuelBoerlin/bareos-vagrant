@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+cd /mount/bareos/devtools/pip-tools
+python3 -m pipenv sync >/dev/null || pipenv sync >/dev/null
+pipenv run bash -c 'bareos-check-sources --since-merge --diff'

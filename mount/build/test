@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-mkdir -p /tmp/build-tmp
-cd /tmp/build-tmp
-cmake -DGIT_DESCRIBE_VERSION="22.0.0" -DVERSION_STRING="22.0.0" -Dpostgresql=yes -Dsystemtest_db_user=$USER -Dtraymonitor=yes /mount/bareos/
-sudo REGRESS_DEBUG=1 ctest --verbose --output-on-failure $@
+mkdir -p /tmp/bareos-logs
+mkdir -p /tmp/bareos-bin
+cd /tmp/bareos-bin
+REGRESS_DEBUG=1 ctest --verbose --output-on-failure $@ 2>&1 | tee -a "/tmp/bareos-logs/test_$(date '+%Y%m%d%H%M%S').log"

@@ -1,7 +1,8 @@
 #!/bin/bash
 set -e
-mkdir -p /tmp/build-tmp
-cd /tmp/build-tmp
-cmake -DGIT_DESCRIBE_VERSION="22.0.0" -DVERSION_STRING="22.0.0" -Dpostgresql=yes -Dsystemtest_db_user=$USER -Dtraymonitor=yes /mount/bareos/
-make
+. /mount/build/config
+mkdir -p /tmp/bareos-bin
+cd /tmp/bareos-bin
+cmake -DGIT_DESCRIBE_VERSION="$BAREOS_VERSION" -DVERSION_STRING="$BAREOS_VERSION" -Dpostgresql=yes -Dsystemtest_db_user=$USER -Dtraymonitor=yes -Ddocs-only=no /mount/bareos/
+cmake
 sudo make install
