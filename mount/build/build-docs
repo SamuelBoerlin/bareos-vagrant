@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 . /mount/build/config
-mkdir -p /tmp/bareos-docs
-cd /tmp/bareos-docs
-cmake -DGIT_DESCRIBE_VERSION="$BAREOS_VERSION" -DVERSION_STRING="$BAREOS_VERSION" -Dpostgresql=yes -Dsystemtest_db_user=$USER -Dtraymonitor=yes -Ddocs=yes -Ddocs-build-json=no /mount/bareos/
+mkdir -p "$DOCS_DIR" 
+cd "$DOCS_DIR" 
+cmake -DGIT_DESCRIBE_VERSION="$BAREOS_VERSION" -DVERSION_STRING="$BAREOS_VERSION" -Dpostgresql=yes -Dsystemtest_db_user=$USER -Dtraymonitor=yes -Ddocs=yes -Ddocs-build-json=no "$SOURCE_DIR" 
 make
 make docs

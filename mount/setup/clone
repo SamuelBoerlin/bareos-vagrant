@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
-mkdir -p /mount/bareos/
-cd /mount/bareos/
+mkdir -p "$SOURCE_DIR" 
+cd "$SOURCE_DIR" 
 git config --global core.autocrlf false
 git config --global core.eol lf
-git clone https://github.com/bareos/bareos.git .
+git clone https://github.com/SamuelBoerlin/bareos.git .

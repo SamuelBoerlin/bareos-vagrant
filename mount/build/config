@@ -1,2 +1,6 @@
 #!/bin/bash
+SOURCE_DIR=/mount/bareos
+BUILD_DIR=/tmp/bareos-bin
+LOGS_DIR=/tmp/bareos-logs
+DOCS_DIR=/tmp/bareos-docs
 BAREOS_VERSION="22.0.0"
