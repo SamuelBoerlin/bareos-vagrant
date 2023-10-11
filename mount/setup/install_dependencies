@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+. /mount/build/config
 sudo sed -i "/#\$nrconf{restart} = 'i';/s/.*/\$nrconf{restart} = 'a';/" /etc/needrestart/needrestart.conf
 sudo apt-get -qq update
 sudo apt-get remove libqt4-dev || true
