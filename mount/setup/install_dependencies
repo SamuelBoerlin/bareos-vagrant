@@ -15,4 +15,4 @@ cat /tmp/build_depends | while read pkg; do
   sudo apt-get -q --assume-yes install $pkg || true
 done
 sudo apt-get -q --assume-yes install python2-dev python3-dev python3-pip python3-sphinx graphviz plantuml googletest libgtest-dev libgmock-dev
-sudo pip3 install sphinx-issues sphinxcontrib.actdiag sphinxcontrib.blockdiag sphinxcontrib.nwdiag sphinxcontrib.plantuml sphinxcontrib.seqdiag sphinx-csv-filter m2r2 sphinx_copybutton sphinx_rtd_theme
+sudo pip3 install pipenv sphinx-issues sphinxcontrib.actdiag sphinxcontrib.blockdiag sphinxcontrib.nwdiag sphinxcontrib.plantuml sphinxcontrib.seqdiag sphinx-csv-filter m2r2 sphinx_copybutton sphinx_rtd_theme
